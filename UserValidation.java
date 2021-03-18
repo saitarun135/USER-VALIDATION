@@ -21,7 +21,7 @@ static Scanner sc = new Scanner(System.in);
 	     String emailId = sc.next();
 	     if (emailId == null){
 	    	 System.out.println("Empty Field.");
-		        }
+		      }
 	     else{
 	     if (emailId.matches("^[a-zA-Z0-9]+([.+-_][a-zA-Z0-9]+)*@[a-zA-z0-9]+.[a-zA-Z]{2}([.][a-zA-Z]{2,4}){0,1}$")) {
         System.out.println("E-mail Id is Valid");
@@ -31,6 +31,12 @@ static Scanner sc = new Scanner(System.in);
 		        }
 		    }
 	   }
+	 public boolean validateMobile(String mobileNumber) {
+		 	String regExp="^[0-9]{2}[-][0-9]{10}$";
+			Pattern p = Pattern.compile(regExp);
+			Matcher m=p.matcher(mobileNumber);
+			return m.matches();
+		}
 
 public static void main(String[] args) {
 	System.out.println("Enter your firstName");
@@ -42,5 +48,9 @@ public static void main(String[] args) {
 	boolean result1=new UserValidation().validateLastName(LastName);
 	System.out.println(result1);
 	isEmailIdValid();
-	}
+	System.out.println("Enter Mobile-Number:");
+	String mobileNumber=sc.next();
+	boolean result3=new UserValidation().validateMobile(mobileNumber);
+	System.out.println(result3);
+}
 }
