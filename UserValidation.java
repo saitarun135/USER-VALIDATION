@@ -16,7 +16,7 @@ static Scanner sc = new Scanner(System.in);
 		return m.matches();
 		}
 	
-	 private static void isEmailIdValid() {
+	 public static void isEmailIdValid() {
 		 System.out.println("Enter Email-Id.");
 	     String emailId = sc.next();
 	     if (emailId == null){
@@ -37,6 +37,22 @@ static Scanner sc = new Scanner(System.in);
 			Matcher m=p.matcher(mobileNumber);
 			return m.matches();
 		}
+	 public static void isPassword1() {
+		 System.out.println("Enter a password of 8-characters:");
+		 String password=sc.next();
+		 if(password==null) {
+			 System.out.println("filed is empty");
+		 		}
+		 else {
+			 if (password.matches("[a-zA-Z0-9]{8}"))	
+			 		{
+	                System.out.println("Password is Valid");
+			 		}
+			 else {
+             System.out.println("Password is Invalid");
+			 	}
+			 }
+	 	}
 
 public static void main(String[] args) {
 	System.out.println("Enter your firstName");
@@ -52,5 +68,6 @@ public static void main(String[] args) {
 	String mobileNumber=sc.next();
 	boolean result3=new UserValidation().validateMobile(mobileNumber);
 	System.out.println(result3);
+	isPassword1();
 }
 }
