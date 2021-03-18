@@ -4,13 +4,13 @@ import java.util.Scanner;
 public class UserValidation {
 static Scanner sc = new Scanner(System.in);
 	public boolean validateFirstName(String FirstName) {
-		String regExp="[A-Z][a-zA-Z]{3,}";
+		String regExp="[A-Z][a-zA-Z]{2,}";
 		Pattern p = Pattern.compile(regExp);
 		Matcher m=p.matcher(FirstName);
 		return m.matches();
 		}
 	public boolean validateLastName(String LastName) {
-		String regExp="[A-Z][a-zA-Z]{3,}";
+		String regExp="[A-Z][a-zA-Z]{2,}";
 		Pattern p = Pattern.compile(regExp);
 		Matcher m=p.matcher(LastName);
 		return m.matches();
@@ -38,7 +38,7 @@ static Scanner sc = new Scanner(System.in);
 		return m.matches();
 		}
 	public static boolean isPasswordValidation(String password) {
-		String regExp="^(?=.*?[a-z])(?=.*?[A-Z])(?=.*?[0-9]).{8,}$";
+		String regExp="^(?=.*?[a-z])(?=.*?[A-Z])(?=.*?[0-9])(?=.*?[!@#$%^&)*(-+)]).{8,}$";
 		Pattern p = Pattern.compile(regExp);
 		Matcher m=p.matcher(password);
 		return m.matches();
@@ -62,7 +62,7 @@ public static void main(String[] args) {
 	boolean result3=new UserValidation().validateMobile(mobileNumber);
 	System.out.println(result3);
 	
-	System.out.println("Enter your password(uppercase,lowercase,digit):");
+	System.out.println("Enter your password(contains-UC,LC,Digits,Sp.Chars):");
 	String password=sc.next();
 	boolean result4=new UserValidation().isPasswordValidation(password);
 	System.out.println(result4);
