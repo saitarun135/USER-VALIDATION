@@ -17,17 +17,17 @@ static Scanner sc = new Scanner(System.in);
 		}
 	
 	 public static void isEmailIdValid() {
-		 System.out.println("Enter Email-Id.");
-	     String emailId = sc.next();
-	     if (emailId == null){
+		 	System.out.println("Enter Email-Id.");
+		 	String emailId = sc.next();
+		 	if (emailId == null){
 	    	 System.out.println("Empty Field.");
 		      }
-	     else{
-	     if (emailId.matches("^[a-zA-Z0-9]+([.+-_][a-zA-Z0-9]+)*@[a-zA-z0-9]+.[a-zA-Z]{2}([.][a-zA-Z]{2,4}){0,1}$")) {
-        System.out.println("E-mail Id is Valid");
-		  }
-	     else {
-		   System.out.println("E-mail Id is Invalid");
+		 	else{
+		 	if(emailId.matches("^[a-zA-Z0-9]+([.+-_][a-zA-Z0-9]+)*@[a-zA-z0-9]+.[a-zA-Z]{2}([.][a-zA-Z]{2,4}){0,1}$")) {
+		 		System.out.println("E-mail Id is Valid");
+		 		}
+		 	else {
+		 		System.out.println("E-mail Id is Invalid");
 		        }
 		    }
 	   }
@@ -37,21 +37,24 @@ static Scanner sc = new Scanner(System.in);
 			Matcher m=p.matcher(mobileNumber);
 			return m.matches();
 		}
-	 public static void isPassword1() {
-		 System.out.println("Enter a password of 8-characters:");
+	 public static void isPasswordValidation() {
+		 System.out.println("Enter a password:");
 		 String password=sc.next();
-		 if(password==null) {
-			 System.out.println("filed is empty");
-		 		}
-		 else {
-			 if (password.matches("[a-zA-Z0-9]{8}"))	
-			 		{
-	                System.out.println("Password is Valid");
-			 		}
-			 else {
-             System.out.println("Password is Invalid");
-			 	}
+		 boolean upperCase=false;
+		 char[] pwArray=password.toCharArray();
+		 for(int i=0;i<pwArray.length;i++) {
+			 if(Character.isUpperCase(pwArray[i])) {
+				 upperCase=true;
 			 }
+			if(pwArray.length>=8 &&upperCase) {
+				System.out.println("Entered password is valid...");
+				break;
+			}
+			else {
+				System.out.println("Entered password is invalid");
+				break;
+			}
+		 }
 	 	}
 
 public static void main(String[] args) {
@@ -68,6 +71,6 @@ public static void main(String[] args) {
 	String mobileNumber=sc.next();
 	boolean result3=new UserValidation().validateMobile(mobileNumber);
 	System.out.println(result3);
-	isPassword1();
+	isPasswordValidation();
 }
 }
