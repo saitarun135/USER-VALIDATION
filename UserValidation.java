@@ -17,13 +17,13 @@ static Scanner sc = new Scanner(System.in);
 		}
 	
 	public static void isEmailIdValid() {
-		System.out.println("Enter Email-Id.");
+		System.out.println("Enter proper Email-Id.");
 		String emailId = sc.next();
 		if (emailId == null){
 	    	 System.out.println("Empty Field.");
 		      }
 		else{
-		if(emailId.matches("^[a-zA-Z0-9]+([.+-_][a-zA-Z0-9]+)*@[a-zA-z0-9]+.[a-zA-Z]{2}([.][a-zA-Z]{2,4}){0,1}$")) {
+		if(emailId.matches("^[a-zA-Z0-9]+([.+-_][a-zA-Z0-9]+)*@[a-zA-z0-9]+.[a-zA-Z]{2,4}([.][a-zA-Z]{2,4})$")) {
 		 		System.out.println("E-mail Id is Valid");
 		 		}
 		else {
@@ -67,5 +67,5 @@ public static void main(String[] args) {
 	boolean result4=new UserValidation().isPasswordValidation(password);
 	System.out.println(result4);
 	
-}
+ }
 }
