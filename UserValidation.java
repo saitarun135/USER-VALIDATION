@@ -28,11 +28,11 @@ static Scanner sc = new Scanner(System.in);
 			return;
 			}	
 			
-		if(emailId.matches("^[a-zA-Z0-9]+([.+-_][a-zA-Z0-9]+)*@(?=.*?[a-zA-z0-9])+.[a-zA-Z]{2,4}(.[a-zA-Z]{2,4})$")) {
+	/*	if(emailId.matches("^[a-zA-Z0-9]+([.+-_][a-zA-Z0-9]+)*@(?=.*?[a-zA-z0-9])+.[a-zA-Z]{2,4}(.[a-zA-Z]{2,4})$")) {
 		 	System.out.println("E-mail Id is Valid");
 		 	return;
 		 	}
-			
+		*/	
 		else {
 		 		System.out.println("E-mail Id is Invalid");
 		        }
