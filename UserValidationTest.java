@@ -1,11 +1,22 @@
 import static org.junit.Assert.*;
-
+import org.junit.Before;
 import org.junit.Test;
-
 import junit.framework.Assert;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+import org.junit.runners.Parameterized.Parameters;
+
+
 
 public class UserValidationTest {
 
+	
 	@Test
 			public void givenFirstName_whenProper_ShouldReturnTrue() {
 			UserValidation usr=new UserValidation();
@@ -17,8 +28,8 @@ public class UserValidationTest {
 	@Test
 			public void givenFirstName_whenProper_ShouldReturnFalse() {
 			UserValidation usr=new UserValidation();
-			boolean result=usr.validateFirstName("Sai");
-			Assert.assertEquals(false, result);
+			boolean result=usr.validateFirstName("sai");
+			Assert.assertFalse(result);
 
 			}
 	@Test
@@ -63,7 +74,9 @@ public class UserValidationTest {
 			boolean result=usr.isPasswordValidation("SAItarun1");
 			Assert.assertFalse(result);
 	
-			}
+			} 
 
+
+	
 }
 
