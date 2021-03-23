@@ -16,65 +16,97 @@ import org.junit.runners.Parameterized.Parameters;
 
 public class UserValidationTest {
 
-	
+	  
 	@Test
-			public void givenFirstName_whenProper_ShouldReturnTrue() {
-			UserValidation usr=new UserValidation();
-			boolean result=usr.validateFirstName("Sai");
-			Assert.assertTrue(result);
-		
-			}
-	
+	public void givenFirstName_WhenValid_ShouldReturnTrue(){
+		String testString = "Sai";
+		try {
+			Assert.assertTrue(UserValidation.validatePattern(testString, UserValidation.firstNamePattern));
+		} catch (UserValidationException e) {
+			e.printStackTrace();
+		}
+	}
 	@Test
-			public void givenFirstName_whenProper_ShouldReturnFalse() {
-			UserValidation usr=new UserValidation();
-			boolean result=usr.validateFirstName("sai");
-			Assert.assertFalse(result);
-
-			}
+	public void givenFirstName_WhenInvalid_ShouldReturnFalse(){
+		String testString = "sa";
+		try {
+			Assert.assertFalse(UserValidation.validatePattern(testString, UserValidation.firstNamePattern));
+		} catch (UserValidationException e) {
+			e.printStackTrace();
+		}
+	}
 	@Test
-			public void givenLastName_whenProper_ShouldReturnTrue() {
-			UserValidation usr=new UserValidation();
-			boolean result=usr.validateLastName("Tarun");
-			Assert.assertTrue(result);
-	
-			}
-	
+	public void givenLastName_WhenValid_ShouldReturnTrue(){
+		String testString = "Tarun";
+		try {
+			Assert.assertTrue(UserValidation.validatePattern(testString, UserValidation.lastNamePattern));
+		} catch (UserValidationException e) {
+			e.printStackTrace();
+		}
+	}
 	@Test
-			public void givenLastName_whenProper_ShouldReturnFalse() {
-			UserValidation usr=new UserValidation();
-			boolean result=usr.validateLastName("tarun");
-			Assert.assertFalse(result);
-		
-			}
-	
+	public void givenLastName_WhenInvalid_ShouldReturnFalse(){
+		String testString = "tarun";
+		try {
+			Assert.assertFalse(UserValidation.validatePattern(testString, UserValidation.lastNamePattern));
+		} catch (UserValidationException e) {
+			e.printStackTrace();
+		}
+	}
 	@Test
-			public void givenMob_Number_ShouldReturnTrue() {
-			UserValidation usr =new UserValidation();
-			boolean result=usr.validateMobile("91-7901001572");
-			Assert.assertTrue(result);
-			}
+	public void givenEmail_WhenValid_ShouldReturnTrue(){
+		String testString = "a.b1.00@abc.net";
+		try {
+			Assert.assertTrue(UserValidation.validatePattern(testString, UserValidation.emailPattern));
+		} catch (UserValidationException e) {
+			e.printStackTrace();
+		}
+	}
 	@Test
-			public void givenMob_Number_ShouldReturnFalse() {
-			UserValidation usr =new UserValidation();
-			boolean result=usr.validateMobile("7901001572");
-			Assert.assertFalse(result);
-			}
-
+	public void givenEmail_WhenInvalid_ShouldReturnFalse(){
+		String testString = "abc";
+		try {
+			Assert.assertFalse(UserValidation.validatePattern(testString, UserValidation.emailPattern));
+		} catch (UserValidationException e) {
+			e.printStackTrace();
+		}
+	}
 	@Test
-			public void givenPassword_ShouldReturnTrue() {
-			UserValidation usr = new UserValidation();
-			boolean result=usr.isPasswordValidation("SAItarun*1");
-			Assert.assertTrue(result);
-			
-			}
+	public void givenMobileNumber_WhenValid_ShouldReturnTrue(){
+		String testString = "91-9822056132";
+		try {
+			Assert.assertTrue(UserValidation.validatePattern(testString, UserValidation.mobileNumberPattern));
+		} catch (UserValidationException e) {
+			e.printStackTrace();
+		}
+	}
 	@Test
-			public void givenPassword_ShouldReturnFalse() {
-			UserValidation usr = new UserValidation();
-			boolean result=usr.isPasswordValidation("SAItarun1");
-			Assert.assertFalse(result);
-	
-			} 
+	public void givenMobileNumber_WhenInvalid_ShouldReturnFalse(){
+		String testString = "+919822056132";
+		try {
+			Assert.assertFalse(UserValidation.validatePattern(testString, UserValidation.mobileNumberPattern));
+		} catch (UserValidationException e) {
+			e.printStackTrace();
+		}
+	}
+	@Test
+	public void givenPassword_WhenValid_ShouldReturnTrue(){
+		String testString = "asdU2@q4515";
+		try {
+			Assert.assertTrue(UserValidation.validatePattern(testString, UserValidation.passwordPattern));
+		} catch (UserValidationException e) {
+			e.printStackTrace();
+		}
+	}
+	@Test
+	public void givenPassword_WhenInvalid_ShouldReturnFalse(){
+		String testString = "adwssdfrgsadw";
+		try {
+			Assert.assertFalse(UserValidation.validatePattern(testString, UserValidation.passwordPattern));
+		} catch (UserValidationException e) {
+			e.printStackTrace();
+		}
+	}
 
 
 	
