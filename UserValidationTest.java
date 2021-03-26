@@ -12,11 +12,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
-
-
 public class UserValidationTest {
-
-	  
 	@Test
 	public void givenFirstName_WhenValid_ShouldReturnTrue(){
 		String testString = "Sai";
@@ -55,7 +51,7 @@ public class UserValidationTest {
 	}
 	@Test
 	public void givenEmail_WhenValid_ShouldReturnTrue(){
-		String testString = "a.b1.00@abc.net";
+		String testString = "saitarun800@gmail.com";
 		try {
 			Assert.assertTrue(UserValidation.validatePattern(testString, UserValidation.emailPattern));
 		} catch (UserValidationException e) {
@@ -73,25 +69,25 @@ public class UserValidationTest {
 	}
 	@Test
 	public void givenMobileNumber_WhenValid_ShouldReturnTrue(){
-		String testString = "91-9822056132";
+		String testString = "91-9175757555";
 		try {
-			Assert.assertTrue(UserValidation.validatePattern(testString, UserValidation.mobileNumberPattern));
+			Assert.assertTrue(UserValidation.validatePattern(testString, UserValidation.mobilePattern));
 		} catch (UserValidationException e) {
 			e.printStackTrace();
 		}
 	}
 	@Test
 	public void givenMobileNumber_WhenInvalid_ShouldReturnFalse(){
-		String testString = "+919822056132";
+		String testString = "+911122232";
 		try {
-			Assert.assertFalse(UserValidation.validatePattern(testString, UserValidation.mobileNumberPattern));
+			Assert.assertFalse(UserValidation.validatePattern(testString, UserValidation.mobilePattern));
 		} catch (UserValidationException e) {
 			e.printStackTrace();
 		}
 	}
 	@Test
 	public void givenPassword_WhenValid_ShouldReturnTrue(){
-		String testString = "asdU2@q4515";
+		String testString = "saitarun800@gmail.com";
 		try {
 			Assert.assertTrue(UserValidation.validatePattern(testString, UserValidation.passwordPattern));
 		} catch (UserValidationException e) {
@@ -100,7 +96,7 @@ public class UserValidationTest {
 	}
 	@Test
 	public void givenPassword_WhenInvalid_ShouldReturnFalse(){
-		String testString = "adwssdfrgsadw";
+		String testString = "sai@.gm.in";
 		try {
 			Assert.assertFalse(UserValidation.validatePattern(testString, UserValidation.passwordPattern));
 		} catch (UserValidationException e) {
@@ -109,6 +105,6 @@ public class UserValidationTest {
 	}
 
 
-	
+
 }
 
